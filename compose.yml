@@ -1,0 +1,14 @@
+
+services:
+  rag-api:
+    build: .
+    container_name: agentic-rag-api
+
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    environment:
+      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+
+    volumes:
+      - ./data/chroma_sections:/app/data/chroma_sections

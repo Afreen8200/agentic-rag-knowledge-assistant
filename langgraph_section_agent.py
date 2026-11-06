@@ -1,6 +1,7 @@
 
 # Import required libraries
 import re
+import os
 
 from rank_bm25 import BM25Okapi
 
@@ -222,10 +223,25 @@ def search_gitlab_handbook(query: str) -> str:
 
 
 # STEP 7: Initialize Llama 3.2 3B
+
+# STEP 7: Connect to Llama 3.2 3B through Ollama
+
+# Read the Ollama address from Docker's environment
+ollama_url = os.getenv(
+    "OLLAMA_BASE_URL",
+    "http://127.0.0.1:11434"
+)
+
+# Display the address for debugging
+print("OLLAMA URL IN USE:", ollama_url)
+
+# Initialize the model
 llm = ChatOllama(
     model="llama3.2:3b",
-    temperature=0
+    temperature=0,
+    base_url=ollama_url
 )
+
 
 tools = [search_gitlab_handbook]
 
