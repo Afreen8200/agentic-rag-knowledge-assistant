@@ -12,3 +12,4 @@ rank-bm25
 chromadb
 requests
 beautifulsoup4
+langchain-text-splitters
