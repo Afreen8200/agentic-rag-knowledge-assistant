@@ -1,0 +1,23 @@
+
+# Virtual environment
+.venv/
+venv/
+
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+
+# Local databases
+data/chroma_db/
+data/chroma_sections/
+
+# Downloaded document data
+data/raw/
+
+# Local settings
+.vscode/
+*.log
